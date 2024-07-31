@@ -1,30 +1,24 @@
-const express= require('express')
-const mongoose= require('mongoose')
-const personRoute= require('./routes/persons.js')
-const openAIRoute= require('./routes/openai.js')
-const env=require('dotenv')
-env.config();
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const connectDB = require('./config/dbconnect');
+const chatRoutes = require('./routes/chat.js');
+const authRoutes = require('./routes/auth.js');
 
-// configuration for server
-const app=express()
-app.use(express.json())
+dotenv.config();
 
+connectDB();
 
-// connect the database
-mongoose.connect(
-    process.env.MONGO_CONNECTION_STRING,
-    (err) => {
-     if(err) console.log(err) 
-     else console.log("mongdb is connected");
-    }
-  );
+const app = express();
 
-app.use('/api/persons',personRoute)
-app.use('/api/openai',openAIRoute)
+app.use(cors());
+app.use(express.json());
 
+app.use('/api/chat', chatRoutes);
+app.use('/api/auth', authRoutes);
 
+const PORT = process.env.PORT || 5000;
 
-// run the server
-app.listen(5000,()=>{
-    console.log('\x1b[42m%s\x1b[0m',"server is running")
-})
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
