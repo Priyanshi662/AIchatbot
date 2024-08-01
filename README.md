@@ -14,7 +14,7 @@ The following technologies have been utilized in this project:
 To use Imagify, you need to have Node.js and MongoDB installed on your machine. Follow the steps below:
 
 1. Clone the repository:
-git clone https://github.com/your-username/imagify.git
+git clone https://github.com/your-username/AIchatbot.git
 
 2. Install the dependencies:
 cd imagify
