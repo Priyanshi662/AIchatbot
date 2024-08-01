@@ -1,7 +1,6 @@
-# Imagify
+# AI chatbot
 
 ## Description
-Imagify is a practice project developed using Node.js, the OpenAI API, MongoDB, and Mongoose. The purpose of this project is to take input prompts from the user and generate an image based on the provided description. Initially created as a personal project, it serves as a learning tool for backend development, database integration, and making API calls. Imagify provides a basic understanding of how the backend works.
 
 ## Tech Stack
 The following technologies have been utilized in this project:
